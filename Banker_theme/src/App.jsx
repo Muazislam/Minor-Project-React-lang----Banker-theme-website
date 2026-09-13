@@ -1,8 +1,3 @@
-import Food from "./Food.jsx";
-import Card from "./Card.jsx";
-import Button from "./Button/Button.jsx";
-import Student from "./Student.jsx";
-// -----
 import Navbar from "./Section-0-Navbar/Navbar.jsx";
 import Hero from "./Section-1-Hero/Hero.jsx";
 import Email from "./Section-2-email/Email.jsx";
@@ -20,15 +15,6 @@ import Footer from "./Section-13-Footer/Footer.jsx";
 function App() {
   return (
     <>
-      <Food />
-      <Card />
-      <Card />
-      <Button />
-      <Student name="Muaz" age="30" isStudent={true} />
-      <Student name="Patrik" age={45} isStudent={false} />
-      <Student name="Bhindi" age={80} isStudent={false} />
-      <Student name="aloo kachalo" age={78} isStudent={false} />
-
       <Navbar />
       <Hero />
       <Email />
