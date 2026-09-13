@@ -31,12 +31,77 @@ function Pricing() {
     },
   ];
   return (
-    <section className="pricing">
-      <h1>Pricing</h1>
+    <section className="pricing py-5">
+      <style>{`
+        .pricing {
+          overflow-x: hidden;
+        }
+        .pricing .card {
+          width: 100% !important;
+          max-width: 22rem;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          border-radius: 0.75rem;
+          border: 1px solid rgba(0, 0, 0, 0.1);
+          box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+          transition: transform 0.2s ease, box-shadow 0.2s ease;
+          overflow: hidden;
+          word-break: break-word;
+          overflow-wrap: break-word;
+          margin: 0 auto;
+        }
+        .pricing .card:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+        .pricing .card-body {
+          flex: 1 1 auto;
+          display: flex;
+          flex-direction: column;
+          padding: 1.5rem;
+          word-break: break-word;
+          overflow-wrap: break-word;
+        }
+        .pricing .card-title {
+          word-break: break-word;
+          overflow-wrap: break-word;
+          font-weight: 700;
+        }
+        .pricing .list-group-item {
+          word-break: break-word;
+          overflow-wrap: break-word;
+          padding: 0.75rem 0.25rem;
+          font-size: 0.95rem;
+        }
+        .pricing .card > button,
+        .pricing .card button {
+          width: calc(100% - 3rem);
+          margin: 0 auto 1.5rem auto;
+          display: block;
+          border-radius: 6px;
+          font-weight: 600;
+        }
+      `}</style>
 
-      {plans.map((plan) => (
-        <Pricingcard key={plan.model} {...plan} />
-      ))}
+      <div className="container px-3">
+        <div className="text-center mb-5">
+          <h2 className="fw-bold display-5 mb-2">Pricing Plans</h2>
+          <p className="text-muted lead">Choose the best banking plan tailored for your needs</p>
+        </div>
+
+        <div className="row g-4 justify-content-center align-items-stretch">
+          {plans.map((plan) => (
+            <div
+              key={plan.model}
+              className="col-12 col-md-6 col-lg-4 d-flex justify-content-center"
+            >
+              <Pricingcard {...plan} />
+            </div>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }

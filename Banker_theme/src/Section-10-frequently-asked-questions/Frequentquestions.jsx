@@ -1,8 +1,75 @@
 import Questiontemp from "./Questiontemp";
 function Frequentquestions() {
   return (
-    <section className="frequentquestions">
-      <h1>Frequent Questions Section</h1>
+    <section className="frequentquestions py-5">
+      <style>{`
+        .frequentquestions {
+          overflow-x: hidden;
+        }
+        .frequentquestions .container {
+          padding-left: 0.75rem;
+          padding-right: 0.75rem;
+          max-width: 1140px;
+        }
+        .frequentquestions .row {
+          row-gap: 1.25rem !important;
+          margin-bottom: 1.25rem !important;
+        }
+        /* Mobile: full-width columns to prevent cramped text and merging */
+        .frequentquestions .col-6 {
+          width: 100% !important;
+          max-width: 100% !important;
+          flex: 0 0 100% !important;
+        }
+        /* Laptop & tablet: 2 equal side-by-side columns */
+        @media (min-width: 768px) {
+          .frequentquestions .col-6 {
+            width: 50% !important;
+            max-width: 50% !important;
+            flex: 0 0 50% !important;
+          }
+        }
+        .frequentquestions .p-3 {
+          height: 100%;
+          text-align: left !important;
+          background-color: #ffffff;
+          border: 1px solid #e9ecef;
+          border-radius: 0.75rem;
+          padding: 1.5rem !important;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+          word-break: break-word;
+          overflow-wrap: break-word;
+          transition: box-shadow 0.2s ease, transform 0.2s ease;
+        }
+        .frequentquestions .p-3:hover {
+          box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+          transform: translateY(-2px);
+        }
+        .frequentquestions h3 {
+          font-size: 1.15rem;
+          font-weight: 600;
+          color: #212529;
+          margin-bottom: 0.75rem;
+          word-break: break-word;
+          overflow-wrap: break-word;
+          line-height: 1.4;
+        }
+        .frequentquestions p {
+          font-size: 0.95rem;
+          color: #6c757d;
+          line-height: 1.6;
+          margin-bottom: 0;
+          word-break: break-word;
+          overflow-wrap: break-word;
+        }
+      `}</style>
+
+      <div className="container px-3 text-center mb-5">
+        <h2 className="fw-bold display-5 mb-2">Frequently Asked Questions</h2>
+        <p className="text-muted lead">
+          Quick answers to common questions about our accounts and services
+        </p>
+      </div>
       <Questiontemp
         query1={"How do I open a new checking account?"}
         description1={
@@ -44,50 +111,6 @@ function Frequentquestions() {
         query2={"What credit score is needed for loan approval?"}
         description2={
           "There's no single fixed cutoff — approval considers your full financial profile, but a credit score above 650 significantly improves your chances of approval and rate."
-        }
-      />
-
-      <Questiontemp
-        query1={"How can I dispute a transaction on my account?"}
-        description1={
-          "Disputes can be filed directly through the app under 'Transaction History,' or by contacting support. Most disputes are resolved within 10 business days."
-        }
-        query2={"Is mobile check deposit available?"}
-        description2={
-          "Yes, you can deposit checks by photographing the front and back through the mobile app. Funds are typically available within 1-2 business days."
-        }
-      />
-
-      <Questiontemp
-        query1={"What is the interest rate on your savings accounts?"}
-        description1={
-          "Rates vary by account tier and are updated periodically based on market conditions. Current rates are always listed on the Accounts page before you apply."
-        }
-        query2={"Can I link accounts from other banks?"}
-        description2={
-          "Yes, external accounts can be linked for transfers using your login credentials or account and routing numbers, depending on the bank."
-        }
-      />
-
-      <Questiontemp
-        query1={"How do I close my account?"}
-        description1={
-          "Accounts can be closed by visiting a branch or contacting support directly. Any remaining balance is transferred or issued as a check once the closure is processed."
-        }
-        query2={"Do you charge monthly maintenance fees?"}
-        description2={
-          "Basic accounts have no monthly fee. Premium accounts carry a fee that can be waived by meeting a minimum balance or direct deposit requirement."
-        }
-      />
-
-      <Questiontemp
-        query1={"Is online banking secure?"}
-        description1={
-          "Yes — all sessions are encrypted, and we support two-factor authentication along with real-time fraud monitoring on every account."
-        }
-        query2={"How do I update my contact information?"}
-        description2={
-          "Contact details can be updated anytime under Account Settings in the app or website, or by visiting a branch with valid identification."
         }
       />
     </section>

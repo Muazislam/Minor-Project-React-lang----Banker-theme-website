@@ -34,36 +34,64 @@ const testimonials = [
 function Customerreview() {
   return (
     <section className="customerreview text-center py-5">
-      <h2 className="text-warning fw-bold mb-4">Happy Customers</h2>
+      <style>{`
+        .customerreview {
+          overflow-x: hidden;
+        }
+        .customerreview .swiper {
+          padding-bottom: 3.5rem !important;
+        }
+        .customerreview blockquote {
+          word-break: break-word;
+          overflow-wrap: break-word;
+          line-height: 1.6;
+        }
+        .customerreview .customer-info {
+          word-break: break-word;
+          overflow-wrap: break-word;
+        }
+        .customerreview .swiper-pagination-bullet-active {
+          background-color: #ffc107 !important;
+        }
+      `}</style>
 
-      <Swiper
-        modules={[Autoplay, Pagination]}
-        slidesPerView={1}
-        loop={true}
-        autoplay={{ delay: 3000, disableOnInteraction: false }}
-        pagination={{ clickable: true }}
-      >
-        {testimonials.map((review) => (
-          <SwiperSlide key={review.name}> {/*Question: Why was this made?*/}
-            <div className="container" style={{ maxWidth: "36rem" }}>
-              <blockquote className="blockquote text-secondary fs-5 fst-italic px-md-5 mb-4">
-                “{review.quote}”
-              </blockquote>
+      <div className="container px-3">
+        <h2 className="text-warning fw-bold display-6 mb-2">Happy Customers</h2>
+        <p className="text-muted mb-4 fs-6">See what our clients have to say about banking with us</p>
 
-              <div className="d-inline-flex align-items-center gap-2">
-                <img
-                  src={review.avatar}
-                  className="rounded-circle"
-                  width="48"
-                  height="48"
-                  alt={review.name}
-                />
-                <span className="text-muted small fw-medium">{review.name}</span>
+        <Swiper
+          modules={[Autoplay, Pagination]}
+          slidesPerView={1}
+          loop={true}
+          autoplay={{ delay: 3000, disableOnInteraction: false }}
+          pagination={{ clickable: true }}
+          className="pb-4"
+        >
+          {testimonials.map((review) => (
+            <SwiperSlide key={review.name}>
+              <div
+                className="mx-auto px-3 px-sm-4"
+                style={{ maxWidth: "40rem", width: "100%" }}
+              >
+                <blockquote className="blockquote text-secondary fs-5 fst-italic mb-4">
+                  “{review.quote}”
+                </blockquote>
+
+                <div className="d-inline-flex align-items-center justify-content-center gap-3 customer-info flex-wrap">
+                  <img
+                    src={review.avatar}
+                    className="rounded-circle flex-shrink-0"
+                    width="48"
+                    height="48"
+                    alt={review.name}
+                  />
+                  <span className="text-muted small fw-medium">{review.name}</span>
+                </div>
               </div>
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
     </section>
   );
 }
