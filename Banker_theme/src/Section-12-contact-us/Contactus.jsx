@@ -1,6 +1,7 @@
 import Button from "../Button/Button.jsx";
 
 function Contactus() {
+  
   return (
     <section className="contactus">
       <h1>Contact us</h1>
