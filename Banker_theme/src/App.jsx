@@ -1,9 +1,9 @@
-import Header from "./Header.jsx";
-import Footer from "./Footer.jsx";
 import Food from "./Food.jsx";
 import Card from "./Card.jsx";
 import Button from "./Button/Button.jsx";
 import Student from "./Student.jsx";
+// -----
+import Navbar from "./Section-0-Navbar/Navbar.jsx";
 import Hero from "./Section-1-Hero/Hero.jsx";
 import Email from "./Section-2-email/Email.jsx";
 import Aboutus from "./Section-3-aboutus/Aboutus.jsx";
@@ -16,6 +16,7 @@ import Pricing from "./section-9-pricing/Pricing.jsx";
 import Frequentquestions from "./Section-10-frequently-asked-questions/Frequentquestions.jsx";
 import Blog from "./Section-11-our-blog/Blog.jsx";
 import Contactus from "./Section-12-contact-us/Contactus.jsx";
+import Footer from "./Section-13-Footer/Footer.jsx";
 function App() {
   return (
     <>
@@ -27,9 +28,8 @@ function App() {
       <Student name="Patrik" age={45} isStudent={false} />
       <Student name="Bhindi" age={80} isStudent={false} />
       <Student name="aloo kachalo" age={78} isStudent={false} />
-      <Footer></Footer>
-      <Header></Header>
 
+      <Navbar />
       <Hero />
       <Email />
       <Aboutus />
@@ -42,6 +42,7 @@ function App() {
       <Frequentquestions />
       <Blog />
       <Contactus />
+      <Footer />
     </>
   );
 }
