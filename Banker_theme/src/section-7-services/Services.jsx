@@ -1,4 +1,4 @@
-import Servicestemp from "../Servicetemp";
+import Servicestemp from "./Servicetemp";
 
 const data = [
   {
