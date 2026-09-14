@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "mixitup": "^3.3.2",
     "prop-type": "^0.0.1",
     "swiper": "^14.2.0"
   }

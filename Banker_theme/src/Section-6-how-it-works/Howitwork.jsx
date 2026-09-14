@@ -37,9 +37,14 @@ const data = [
   },
 ];
 
-export function Howitwork() {
+function Howitwork() {
   return (
     <section className="howitwork">
+      <h1>How it works</h1>
+      <h4>
+        A small river named Duden flows by their place and supplies it with the
+        necessary regelialia.
+      </h4>
       <div
         className="position-relative mx-auto py-5"
         style={{ maxWidth: "48rem" }}
@@ -92,3 +97,5 @@ export function Howitwork() {
     </section>
   );
 }
+
+export default Howitwork;
