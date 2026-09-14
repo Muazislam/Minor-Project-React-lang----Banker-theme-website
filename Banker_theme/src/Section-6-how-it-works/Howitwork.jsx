@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import Button from "../Button/Button";
@@ -6,6 +7,8 @@ import Button from "../Button/Button";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+
+import "./Howitwork.css";
 
 const data = [
   {
@@ -38,61 +41,87 @@ const data = [
 ];
 
 function Howitwork() {
-  return (
-    <section className="howitwork">
-      <h1>How it works</h1>
-      <h4>
-        A small river named Duden flows by their place and supplies it with the
-        necessary regelialia.
-      </h4>
-      <div
-        className="position-relative mx-auto py-5"
-        style={{ maxWidth: "48rem" }}
-      >
-        <Swiper
-          modules={[Navigation, Pagination]}
-          slidesPerView={1}
-          navigation={{
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-          }}
-          pagination={{ clickable: true }}
-          loop={true}
-        >
-          {data.map((element) => (
-            <SwiperSlide key={element.id}>
-              <div className="d-flex align-items-center gap-4">
-                <div className="image-container">
-                  <img
-                    src={element.image}
-                    className="img-thumbnail"
-                    alt={element.title}
-                  />
-                </div>
+  const swiperRef = useRef(null);
 
-                <div className="text-container">
-                  <div className="card" style={{ width: "18rem" }}>
-                    <div className="card-body">
-                      <h5 className="card-title">{element.title}</h5>
-                      <p className="card-text">{element.description}</p>
-                      <Button />
+  const handlePrev = () => {
+    if (swiperRef.current) swiperRef.current.slidePrev();
+  };
+
+  const handleNext = () => {
+    if (swiperRef.current) swiperRef.current.slideNext();
+  };
+
+  return (
+    <section className="howitwork py-5">
+      <div className="container">
+        <div className="text-center mb-5">
+          <p className="text-uppercase small fw-semibold howitwork-eyebrow mb-2">
+            Get Started
+          </p>
+          <h1 className="howitwork-heading">How it works</h1>
+          <p className="howitwork-subheading mx-auto">
+            A small river named Duden flows by their place and supplies it with
+            the necessary regelialia.
+          </p>
+          <div className="howitwork-divider mx-auto"></div>
+        </div>
+
+        <div className="position-relative mx-auto howitwork-slider-wrap">
+          <Swiper
+            modules={[Navigation, Pagination]}
+            slidesPerView={1}
+            pagination={{ clickable: true }}
+            loop={true}
+            onSwiper={(swiper) => {
+              swiperRef.current = swiper;
+            }}
+          >
+            {data.map((element) => (
+              <SwiperSlide key={element.id}>
+                <div className="row align-items-center g-4 g-lg-5 howitwork-row">
+                  <div className="col-12 col-lg-6">
+                    <div className="howitwork-img-wrap">
+                      <img
+                        src={element.image}
+                        className="howitwork-img"
+                        alt={element.title}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="col-12 col-lg-6">
+                    <div className="howitwork-content">
+                      <h5 className="howitwork-title">{element.title}</h5>
+                      <p className="howitwork-text">{element.description}</p>
+                      <Button label={element.button} />
                     </div>
                   </div>
                 </div>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+              </SwiperSlide>
+            ))}
+          </Swiper>
 
-        {/* Clickable Navigation Buttons */}
-        <div
-          className="swiper-button-prev text-warning"
-          style={{ left: "-40px" }}
-        ></div>
-        <div
-          className="swiper-button-next text-warning"
-          style={{ right: "-40px" }}
-        ></div>
+          {/* Split navigation button: left half = prev, right half = next */}
+          <div className="howitwork-split-btn">
+            <button
+              type="button"
+              className="howitwork-split-half howitwork-split-left"
+              onClick={handlePrev}
+              aria-label="Previous slide"
+            >
+              <span className="howitwork-arrow">&#8592;</span>
+            </button>
+            <span className="howitwork-split-divider"></span>
+            <button
+              type="button"
+              className="howitwork-split-half howitwork-split-right"
+              onClick={handleNext}
+              aria-label="Next slide"
+            >
+              <span className="howitwork-arrow">&#8594;</span>
+            </button>
+          </div>
+        </div>
       </div>
     </section>
   );

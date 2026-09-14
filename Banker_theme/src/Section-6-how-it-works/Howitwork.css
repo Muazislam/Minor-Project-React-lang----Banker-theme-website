@@ -1,0 +1,139 @@
+.howitwork {
+  background-color: #ffffff;
+  overflow-x: hidden;
+}
+
+.howitwork-eyebrow {
+  color: #7a8699;
+  letter-spacing: 0.12em;
+}
+
+.howitwork-heading {
+  color: #0a1f44;
+  font-weight: 700;
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.howitwork-subheading {
+  color: #5c6673;
+  max-width: 40rem;
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
+}
+
+.howitwork-divider {
+  width: 60px;
+  height: 3px;
+  background-color: #0a1f44;
+  margin-top: 1rem;
+}
+
+.howitwork-slider-wrap {
+  max-width: 64rem;
+  padding-bottom: 3rem;
+}
+
+.howitwork-row {
+  padding: 1rem 0.5rem;
+}
+
+.howitwork-img-wrap {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 6px;
+  background-color: #e9edf2;
+  box-shadow: 0 4px 16px rgba(10, 31, 68, 0.1);
+}
+
+.howitwork-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.howitwork-content {
+  padding: 0.5rem 0.25rem;
+  max-width: 100%;
+}
+
+.howitwork-title {
+  color: #0a1f44;
+  font-weight: 700;
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  margin-bottom: 0.75rem;
+  overflow-wrap: break-word;
+}
+
+.howitwork-text {
+  color: #5c6673;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+  overflow-wrap: break-word;
+}
+
+/* Split navigation button */
+.howitwork-split-btn {
+  position: absolute;
+  bottom: -0.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: stretch;
+  border: 1px solid #0a1f44;
+  border-radius: 999px;
+  overflow: hidden;
+  background-color: #ffffff;
+  box-shadow: 0 2px 10px rgba(10, 31, 68, 0.12);
+  z-index: 5;
+}
+
+.howitwork-split-half {
+  border: none;
+  background-color: #ffffff;
+  color: #0a1f44;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+  padding: 0;
+}
+
+.howitwork-split-half:hover {
+  background-color: #0a1f44;
+  color: #ffffff;
+}
+
+.howitwork-split-divider {
+  width: 1px;
+  background-color: #d7dce3;
+}
+
+.howitwork-arrow {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+/* Bootstrap-driven pagination color override */
+.howitwork :global(.swiper-pagination-bullet-active) {
+  background-color: #0a1f44;
+}
+
+@media (max-width: 991.98px) {
+  .howitwork-split-btn {
+    bottom: -1rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .howitwork-content {
+    text-align: center;
+  }
+}

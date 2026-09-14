@@ -37,6 +37,7 @@ function Hero() {
           background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
           padding-top: 4rem !important;
           padding-bottom: 4rem !important;
+          
         }
         .hero .swiper {
           padding-bottom: 3.5rem !important;

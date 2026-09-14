@@ -1,8 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import mixitup from "mixitup";
-import Gallery from "./Gallery";
-
-//----
+import "./Gallery.css";
 import myimage1 from "../assets/bank1.jpg";
 import myimage3 from "../assets/bank3.jpg";
 import myimage4 from "../assets/bank4.jpg";
