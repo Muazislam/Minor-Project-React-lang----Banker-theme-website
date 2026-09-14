@@ -4,7 +4,7 @@ import mixitup from "mixitup";
 const items = [
   {
     id: 1,
-    title: "papyrux",
+    title: "Papyrus",
     type: "ecommerce",
     image:
       "https://images.unsplash.com/photo-1522199755839-a2bacb67c546?w=400&h=300&fit=crop",
@@ -37,11 +37,13 @@ function Gallery() {
   const mixerRef = useRef(null);
   const [filter, setFilter] = useState("all");
 
+  // Initialize mixitup once, after the DOM node exists
   useEffect(() => {
     mixerRef.current = mixitup(containerRef.current, {
       animation: { duration: 300 },
     });
 
+    // Clean up on unmount to avoid memory leaks / duplicate instances
     return () => {
       if (mixerRef.current) {
         mixerRef.current.destroy();
@@ -65,29 +67,29 @@ function Gallery() {
           className={`btn btn-sm me-2 ${filter === "all" ? "btn-primary" : "btn-outline-primary"}`}
           onClick={() => applyFilter("all")}
         >
-          {" "}
           Show all
         </button>
         <button
           type="button"
           className={`btn btn-sm me-2 ${filter === "ecommerce" ? "btn-primary" : "btn-outline-primary"}`}
+          onClick={() => applyFilter("ecommerce")}
         >
           Show ecommerce
         </button>
         <button
           type="button"
-          className={`btn btn-sm me-2 ${filter === "interanet" ? "btn-primary" : "btn-outline-primary"}`}
+          className={`btn btn-sm ${filter === "intranet" ? "btn-primary" : "btn-outline-primary"}`}
+          onClick={() => applyFilter("intranet")}
         >
           Show intranets
         </button>
-        {/* <button type="button" className={`btn btn-sm me-2 ${filter === "ecommerce" ? "btn-primary" : "btn-outline-primary"}`}>Show ecommerce</button> */}
       </div>
 
       <div ref={containerRef} className="d-flex flex-wrap gap-3">
         {items.map((item) => (
           <div
             key={item.id}
-            className={"mix ${item.type} card"}
+            className={`mix ${item.type} card`}
             style={{ width: "18rem" }}
           >
             <img src={item.image} className="card-img-top" alt={item.title} />
@@ -101,4 +103,5 @@ function Gallery() {
     </section>
   );
 }
+
 export default Gallery;
