@@ -1,95 +1,106 @@
-import ReactDOM from "react-dom";
+import { useEffect, useRef, useState } from "react";
 import mixitup from "mixitup";
-import React from "react";
 
-const Filters = React.createClass({
-  getInitialState() {
-    return {
-      // Just filtering by type for now, but this will be an object
-      filter: "",
-      items: [
-        {
-          id: 1,
-          title: "Papyrus",
-          type: "ecommerce",
-        },
-        {
-          id: 2,
-          title: "Clinton Foundation",
-          type: "intranet",
-        },
-        {
-          id: 3,
-          title: "Maddie",
-          type: "ecommerce",
-        },
-        {
-          id: 4,
-          title: "WCHN",
-          type: "intranet",
-        },
-      ],
+const items = [
+  {
+    id: 1,
+    title: "Papyrus",
+    type: "ecommerce",
+    image:
+      "https://images.unsplash.com/photo-1522199755839-a2bacb67c546?w=400&h=300&fit=crop",
+  },
+  {
+    id: 2,
+    title: "Clinton Foundation",
+    type: "intranet",
+    image:
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop",
+  },
+  {
+    id: 3,
+    title: "Maddie",
+    type: "ecommerce",
+    image:
+      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=300&fit=crop",
+  },
+  {
+    id: 4,
+    title: "WCHN",
+    type: "intranet",
+    image:
+      "https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=400&h=300&fit=crop",
+  },
+];
+
+function Gallery() {
+  const containerRef = useRef(null);
+  const mixerRef = useRef(null);
+  const [filter, setFilter] = useState("all");
+
+  // Initialize mixitup once, after the DOM node exists
+  useEffect(() => {
+    mixerRef.current = mixitup(containerRef.current, {
+      animation: { duration: 300 },
+    });
+
+    // Clean up on unmount to avoid memory leaks / duplicate instances
+    return () => {
+      if (mixerRef.current) {
+        mixerRef.current.destroy();
+      }
     };
-  },
+  }, []);
 
-  renderItems() {
-    let items = this.state.items;
-    if (this.state.filter !== "") {
-      items = this.state.items.filter((item) => {
-        return item.type === this.state.filter;
-      });
-    }
-    // mixer would really be part of the component (this.mixer)
-    window.mixer.dataset(items);
-  },
+  const applyFilter = (type) => {
+    setFilter(type);
+    const selector = type === "all" ? "all" : `.${type}`;
+    mixerRef.current.filter(selector);
+  };
 
-  applyFilter(filter) {
-    this.setState({ filter }, this.renderItems);
-  },
+  return (
+    <section className="gallery">
+      <h1>Gallery Section</h1>
 
-  render() {
-    return (
-      <div>
-        <h2>Filters</h2>
-        <button type="button" onClick={this.applyFilter.bind(this, "")}>
+      <div className="filters mb-4">
+        <button
+          type="button"
+          className={`btn btn-sm me-2 ${filter === "all" ? "btn-primary" : "btn-outline-primary"}`}
+          onClick={() => applyFilter("all")}
+        >
           Show all
         </button>
         <button
           type="button"
-          onClick={this.applyFilter.bind(this, "ecommerce")}
+          className={`btn btn-sm me-2 ${filter === "ecommerce" ? "btn-primary" : "btn-outline-primary"}`}
+          onClick={() => applyFilter("ecommerce")}
         >
           Show ecommerce
         </button>
-        <button type="button" onClick={this.applyFilter.bind(this, "intranet")}>
+        <button
+          type="button"
+          className={`btn btn-sm ${filter === "intranet" ? "btn-primary" : "btn-outline-primary"}`}
+          onClick={() => applyFilter("intranet")}
+        >
           Show intranets
         </button>
       </div>
-    );
-  },
-});
 
-ReactDOM.render(<Filters />, document.getElementById("filters"));
-
-const renderItem = (item) => {
-  return `<li data-ref="item">${item.title}</li>`;
-};
-const mixer = mixitup(document.getElementById("items"), {
-  data: { uidKey: "id" },
-  render: { target: renderItem },
-  selectors: {
-    target: '[data-ref="item"]',
-  },
-});
-window.mixer = mixer;
-
-function Gallery() {
-  return (
-    <gallery>
-      <h1>Gallery Section</h1>
-      <div id="filters"></div>
-
-<olw id="items"></div>
-    </gallery>
+      <div ref={containerRef} className="d-flex flex-wrap gap-3">
+        {items.map((item) => (
+          <div
+            key={item.id}
+            className={`mix ${item.type} card`}
+            style={{ width: "18rem" }}
+          >
+            <img src={item.image} className="card-img-top" alt={item.title} />
+            <div className="card-body">
+              <h5 className="card-title">{item.title}</h5>
+              <p className="card-text text-muted">{item.type}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
   );
 }
 
