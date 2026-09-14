@@ -1,34 +1,92 @@
 import { useEffect, useRef, useState } from "react";
 import mixitup from "mixitup";
+//----
+import myimage1 from "../assets/bank1.jpg";
+import myimage3 from "../assets/bank3.jpg";
+import myimage4 from "../assets/bank4.jpg";
+import myimage5 from "../assets/bank5.jpg";
+import myimage6 from "../assets/bank6.jpg";
+import myimage7 from "../assets/bank7.jpg";
+import myimage8 from "../assets/bank8.jpg";
+import myimage9 from "../assets/bank9.jpg";
+import myimage10 from "../assets/bank10.jpg";
+import myimage11 from "../assets/bank11.jpg";
+import myimage12 from "../assets/bank12.jpg";
+import myimage13 from "../assets/bank13.jpg";
 
 const items = [
   {
     id: 1,
     title: "Papyrus",
-    type: "ecommerce",
-    image:
-      "https://images.unsplash.com/photo-1522199755839-a2bacb67c546?w=400&h=300&fit=crop",
+    type: "bank",
+    image: myimage1,
   },
-  {
-    id: 2,
-    title: "Clinton Foundation",
-    type: "intranet",
-    image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop",
-  },
+
   {
     id: 3,
     title: "Maddie",
-    type: "ecommerce",
-    image:
-      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=300&fit=crop",
+    type: "stock",
+    image: myimage3,
   },
   {
     id: 4,
     title: "WCHN",
-    type: "intranet",
-    image:
-      "https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=400&h=300&fit=crop",
+    type: "stock",
+    image: myimage4,
+  },
+  {
+    id: 5,
+    title: "WCHN",
+    type: "exchange",
+    image: myimage5,
+  },
+  {
+    id: 6,
+    title: "WCHN",
+    type: "bank",
+    image: myimage6,
+  },
+  {
+    id: 7,
+    title: "WCHN",
+    type: "bank",
+    image: myimage7,
+  },
+  {
+    id: 8,
+    title: "WCHN",
+    type: "stock",
+    image: myimage8,
+  },
+  {
+    id: 9,
+    title: "WCHN",
+    type: "exchange",
+    image: myimage9,
+  },
+  {
+    id: 10,
+    title: "WCHN",
+    type: "exchange",
+    image: myimage10,
+  },
+  {
+    id: 11,
+    title: "WCHN",
+    type: "exchange",
+    image: myimage11,
+  },
+  {
+    id: 12,
+    title: "WCHN",
+    type: "exchange",
+    image: myimage12,
+  },
+  {
+    id: 13,
+    title: "WCHN",
+    type: "bank",
+    image: myimage13,
   },
 ];
 
@@ -67,21 +125,28 @@ function Gallery() {
           className={`btn btn-sm me-2 ${filter === "all" ? "btn-primary" : "btn-outline-primary"}`}
           onClick={() => applyFilter("all")}
         >
-          Show all
+          All
         </button>
         <button
           type="button"
           className={`btn btn-sm me-2 ${filter === "ecommerce" ? "btn-primary" : "btn-outline-primary"}`}
-          onClick={() => applyFilter("ecommerce")}
+          onClick={() => applyFilter("bank")}
         >
-          Show ecommerce
+          Banks
         </button>
         <button
           type="button"
           className={`btn btn-sm ${filter === "intranet" ? "btn-primary" : "btn-outline-primary"}`}
-          onClick={() => applyFilter("intranet")}
+          onClick={() => applyFilter("exchange")}
         >
-          Show intranets
+          Exchanges
+        </button>
+        <button
+          type="button"
+          className={`btn btn-sm ${filter === "intranet" ? "btn-primary" : "btn-outline-primary"}`}
+          onClick={() => applyFilter("stock")}
+        >
+          Stock
         </button>
       </div>
 
