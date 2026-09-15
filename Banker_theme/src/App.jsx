@@ -12,10 +12,15 @@ import Frequentquestions from "./Section-10-frequently-asked-questions/Frequentq
 import Blog from "./Section-11-our-blog/Blog.jsx";
 import Contactus from "./Section-12-contact-us/Contactus.jsx";
 import Footer from "./Section-13-Footer/Footer.jsx";
+//----
+// import Formhandling from "./Formhandling.jsx";
+import { Myref } from "./Myref.jsx";
 function App() {
   return (
     <>
       <Navbar />
+      {/* <Formhandling /> */}
+      <Myref />
       <Hero />
       <Email />
       <Aboutus />
