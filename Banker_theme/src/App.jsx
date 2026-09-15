@@ -14,13 +14,17 @@ import Contactus from "./Section-12-contact-us/Contactus.jsx";
 import Footer from "./Section-13-Footer/Footer.jsx";
 //----
 // import Formhandling from "./Formhandling.jsx";
-import { Myref } from "./Myref.jsx";
+// import { Myref } from "./Myref.jsx";
+import Myuseeffect from "./Myuseeffect.jsx";
+import ActivityDemo from "./Activitydemo.jsx";
 function App() {
   return (
     <>
       <Navbar />
       {/* <Formhandling /> */}
-      <Myref />
+      {/* <Myref /> */}
+      <Myuseeffect />
+      <ActivityDemo />
       <Hero />
       <Email />
       <Aboutus />
