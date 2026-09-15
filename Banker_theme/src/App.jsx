@@ -25,6 +25,7 @@ function App() {
       {/* <Myref /> */}
       <Myuseeffect />
       <ActivityDemo />
+      {/* ------------------ */}
       <Hero />
       <Email />
       <Aboutus />
