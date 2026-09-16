@@ -1,5 +1,3 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-
 import Navbar from "./Section-0-Navbar/Navbar.jsx";
 import Hero from "./Section-1-Hero/Hero.jsx";
 import Email from "./Section-2-email/Email.jsx";
@@ -24,13 +22,7 @@ import RecentTransactions from "./Useeffect.jsx";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<h1>homepage</h1>} />
-        <Route path="/about" element={<h1>About page</h1>} />
-        <Route path="/blog" element={<h1>Blog page</h1>} />
-      </Routes>
-
+    <>
       <Navbar />
       {/* <Formhandling /> */}
       <Myref />
@@ -51,7 +43,7 @@ function App() {
       <Blog />
       <Contactus />
       <Footer />
-    </BrowserRouter>
+    </>
   );
 }
 
