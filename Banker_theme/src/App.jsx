@@ -1,3 +1,5 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import Navbar from "./Section-0-Navbar/Navbar.jsx";
 import Hero from "./Section-1-Hero/Hero.jsx";
 import Email from "./Section-2-email/Email.jsx";
@@ -12,21 +14,31 @@ import Frequentquestions from "./Section-10-frequently-asked-questions/Frequentq
 import Blog from "./Section-11-our-blog/Blog.jsx";
 import Contactus from "./Section-12-contact-us/Contactus.jsx";
 import Footer from "./Section-13-Footer/Footer.jsx";
+
 //----
 // import Formhandling from "./Formhandling.jsx";
-// import { Myref } from "./Myref.jsx";
-import Myuseeffect from "./Myuseeffect.jsx";
-import ActivityDemo from "./Activitydemo.jsx";
+import Myref from "./Myref.jsx";
+// import Myuseeffect from "./Myuseeffect.jsx";
+// import ActivityDemo from "./Activitydemo.jsx";
+import RecentTransactions from "./Useeffect.jsx";
+
 function App() {
   return (
-    <>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<h1>homepage</h1>} />
+        <Route path="/about" element={<h1>About page</h1>} />
+        <Route path="/blog" element={<h1>Blog page</h1>} />
+      </Routes>
+
       <Navbar />
       {/* <Formhandling /> */}
-      {/* <Myref /> */}
-      <Myuseeffect />
-      <ActivityDemo />
+      <Myref />
+      {/* <Myuseeffect />
+      <ActivityDemo /> */}
       {/* ------------------ */}
       <Hero />
+      <RecentTransactions />
       <Email />
       <Aboutus />
       <Team />
@@ -39,7 +51,7 @@ function App() {
       <Blog />
       <Contactus />
       <Footer />
-    </>
+    </BrowserRouter>
   );
 }
 

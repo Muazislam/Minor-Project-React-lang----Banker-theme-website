@@ -1,17 +1,14 @@
-import { Activity, useState } from "react";
+// import { useEffect, useEffectEvent, useState } from "react";
 
-const ActivityDemo = () => {
-  const [show, setShow] = useState(true);
+function bankNotifications() {
+  // Controls whether notifications are muted.
+  // const [ muted, setMuted] = useState(false);
+  // // Store the latest notification message
+  // const [ message, setMessage ] = useState("Waiting for trransactions...");
+  // /*
+  //   useEffectEvent:
+  //   This logic always sees the latest `muted` values.
+  // */
+}
 
-  return (
-    <div>
-      <button onClick={() => setShow(!show)}>showButton</button>
-      <Activity mode={show ? "show" : "hidden"}>
-        <h1>hellpo</h1>
-        <p>Weldkjflsjdf</p>
-      </Activity>
-    </div>
-  );
-};
-
-export default ActivityDemo;
+export default bankNotifications;
